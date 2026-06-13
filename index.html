@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    
+    <div id="page-registration" class="page active">
+      <h2>Registration System</h2>
+      <div class="card">
+        <h3>Register Here</h3>
+        <p id="success-msg" class="success-banner"></p>
+        <p id="error-msg" class="error"></p>
+        
+        <form id="reg-form">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required placeholder="Letters only" autocomplete="off">
+          </div>
+
+          <div class="form-group">
+            <label>Gender:</label>
+            <div class="radio-group">
+              <label class="radio-tile">
+                <input type="radio" name="gender" value="Male" checked>
+                <span>Male</span>
+              </label>
+              <label class="radio-tile">
+                <input type="radio" name="gender" value="Female">
+                <span>Female</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Category:</label>
+            <div class="radio-group grid-2x2">
+              <label class="radio-tile">
+                <input type="radio" name="category" value="Below 7" checked>
+                <span>Below 7</span>
+              </label>
+              <label class="radio-tile">
+                <input type="radio" name="category" value="7 to 12">
+                <span>7 to 12</span>
+              </label>
+              <label class="radio-tile">
+                <input type="radio" name="category" value="Youth">
+                <span>Youth</span>
+              </label>
+              <label class="radio-tile">
+                <input type="radio" name="category" value="Veteran">
+                <span>Veteran</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-success">Submit Registration</button>
+        </form>
+      </div>
+      
+      <button id="go-to-dashboard" class="btn btn-nav">View Registration Dashboard ➔</button>
+    </div>
+
+    <div id="page-dashboard" class="page">
+      <div class="dashboard-header">
+        <h2>Registration Dashboard</h2>
+        <button id="go-to-reg" class="btn">← Back</button>
+      </div>
+
+      <details class="card metrics-accordion">
+        <summary>
+          <span class="accordion-title">Registration Info</span>
+          <div id="metrics-summary-chips" class="chips-container">
+            </div>
+        </summary>
+        <div class="accordion-content">
+          <table class="metrics-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Male</th>
+                <th>Female</th>
+                <th>Grand Total</th>
+              </tr>
+            </thead>
+            <tbody id="metrics-body">
+              </tbody>
+          </table>
+        </div>
+      </details>
+
+      <h3>Category View</h3>
+      <div class="tabs">
+        <button class="tab-btn active" data-category="Below 7">Below 7</button>
+        <button class="tab-btn" data-category="7 to 12">7 to 12</button>
+        <button class="tab-btn" data-category="Youth">Youth</button>
+        <button class="tab-btn" data-category="Veteran">Veteran</button>
+      </div>
+
+      <div class="filter-section">
+        <label><strong>Filter Gender:</strong></label>
+        <div class="radio-group-inline">
+          <label><input type="radio" name="gender-filter" value="All" checked> All</label>
+          <label><input type="radio" name="gender-filter" value="Male"> Male</label>
+          <label><input type="radio" name="gender-filter" value="Female"> Female</label>
+        </div>
+      </div>
+
+      <div class="action-bar">
+        <h4>Registered Participants List</h4>
+        <button id="copy-names-btn" class="btn btn-secondary flex-btn">
+          📋 Copy
+        </button>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 60px;">No.</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th id="th-action" style="display: none; width: 100px;">Action</th> </tr>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="env.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
