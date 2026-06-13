@@ -1,6 +1,0 @@
-# Local secrets / generated config
-.env
-env.js
-
-# OS / editor junk
-.DS_Store
